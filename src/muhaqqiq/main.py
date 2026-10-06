@@ -52,9 +52,11 @@ _LOCAL_CORS = (
 
 
 def _cors_origins() -> list[str]:
-    """Localhost defaults + MUHAQQIQ_CORS_ORIGINS (comma-separated production URLs)."""
-    origins = list(_LOCAL_CORS)
+    """Localhost defaults + MUHAQQIQ_CORS_ORIGINS (comma-separated). Use * to allow all."""
     raw = os.environ.get("MUHAQQIQ_CORS_ORIGINS", "").strip()
+    if raw == "*":
+        return ["*"]
+    origins = list(_LOCAL_CORS)
     for part in raw.split(","):
         origin = part.strip().rstrip("/")
         if origin and origin not in origins:

@@ -1,0 +1,18 @@
+# Optional alternative to Fly: connect this repo in Render Dashboard
+# https://dashboard.render.com/select-repo?type=blueprint
+
+services:
+  - type: web
+    name: muhaqqiq-api
+    runtime: docker
+    dockerfilePath: ./apps/api/Dockerfile
+    dockerContext: .
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: MUHAQQIQ_DB
+        value: /tmp/muhaqqiq.db
+      - key: MUHAQQIQ_OCR
+        value: stub
+      - key: MUHAQQIQ_CORS_ORIGINS
+        sync: false

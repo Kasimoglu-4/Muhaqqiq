@@ -1,0 +1,61 @@
+name: ci
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.12"
+      - name: Sync
+        run: uv sync --group dev --group postgres
+      - name: Lint
+        run: uv run ruff check src pipeline eval tests
+      - name: Dependency scan
+        run: uv run pip-audit
+      - name: Unit tests
+        run: uv run pytest -q tests/test_normalize.py tests/test_decide.py tests/test_validate.py -k sura_lengths
+      - name: Build data
+        run: uv run python -m pipeline.download_sources && uv run python -m pipeline.load_all
+      - name: Validate
+        run: uv run python -m pipeline.validate
+      - name: Full tests
+        run: uv run pytest -q
+      - name: Eval (v0)
+        run: uv run python -m eval.run_eval
+      - name: Held-out v1 false-support gate
+        run: |
+          uv run python -m eval.run_eval --bench eval/benchmark_v1.csv --split holdout --out docs/eval_heldout_results.md --title "Held-out eval results"
+          uv run python -c "import json; from pathlib import Path; p=Path('apps/web/src/generated/eval_heldout.json'); d=json.loads(p.read_text(encoding='utf-8')); assert d.get('false_support')==0, d; assert d.get('n',0)>0; print('FS=0 gate OK n=', d['n'])"
+      - name: Baseline beat check
+        run: |
+          uv run python -c "from pathlib import Path; t=Path('docs/phase0_results.md').read_text(encoding='utf-8'); assert '60/60' in t or 'Accuracy' in t"
+
+  web:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: apps/web/package-lock.json
+      - name: Install
+        run: npm install
+      - name: Lint
+        run: npm run lint
+      - name: Build
+        run: npm run build
+        env:
+          NEXT_PUBLIC_API_URL: http://127.0.0.1:8000
+
