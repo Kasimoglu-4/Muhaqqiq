@@ -15,15 +15,23 @@
   <link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=IBM+Plex+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg0: #0f1a14;
-      --bg1: #1a2e24;
-      --ink: #f2f5f0;
-      --muted: #b7c4ba;
-      --accent: #c4a35a;
-      --ok: #3d8b6e;
-      --warn: #c49a3c;
-      --bad: #8a6b5a;
-      --line: rgba(242, 245, 240, 0.12);
+      --bg0: #f1fcf5;
+      --bg1: #eef5f0;
+      --ink: #141e1a;
+      --muted: #5f6f66;
+      --accent: #b8923a;
+      --accent-ink: #3f2d00;
+      --ok: #2f7a5b;
+      --ok-bg: #ebf7f0;
+      --warn: #b8862d;
+      --warn-bg: #fdf3e3;
+      --danger: #9e3b3b;
+      --danger-bg: #fde8e8;
+      --undetermined: #6b7c72;
+      --undetermined-bg: #f0f4f2;
+      --line: #d1c5b2;
+      --surface: #ffffff;
+      --surface-low: #ebf6f0;
     }
     * { box-sizing: border-box; }
     body {
@@ -32,8 +40,8 @@
       font-family: "IBM Plex Sans Arabic", sans-serif;
       color: var(--ink);
       background:
-        radial-gradient(1200px 600px at 80% -10%, rgba(196, 163, 90, 0.18), transparent 55%),
-        radial-gradient(900px 500px at 0% 100%, rgba(61, 139, 110, 0.16), transparent 50%),
+        radial-gradient(1200px 600px at 80% -10%, rgba(184, 146, 58, 0.12), transparent 55%),
+        radial-gradient(900px 500px at 0% 100%, rgba(47, 122, 91, 0.1), transparent 50%),
         linear-gradient(160deg, var(--bg0), var(--bg1));
     }
     main {
@@ -54,13 +62,17 @@
       min-height: 160px;
       resize: vertical;
       border: 1px solid var(--line);
-      background: rgba(0,0,0,0.25);
+      background: var(--surface);
       color: var(--ink);
       border-radius: 12px;
       padding: 1rem 1.1rem;
       font: inherit;
       font-size: 1.1rem;
       line-height: 1.8;
+    }
+    textarea:focus {
+      outline: 2px solid rgba(184, 146, 58, 0.45);
+      outline-offset: 1px;
     }
     button, .btn {
       display: inline-block;
@@ -69,18 +81,19 @@
       border-radius: 10px;
       padding: 0.85rem 1.4rem;
       background: var(--accent);
-      color: #1a1408;
+      color: var(--accent-ink);
       font: inherit;
       font-weight: 700;
       cursor: pointer;
       text-decoration: none;
     }
-    button:hover, .btn:hover { filter: brightness(1.05); }
+    button:hover, .btn:hover { filter: brightness(0.96); }
     .card {
       border: 1px solid var(--line);
       border-radius: 16px;
       padding: 1.4rem 1.5rem;
-      background: rgba(0,0,0,0.22);
+      background: var(--surface);
+      box-shadow: 0 1px 3px rgba(26, 36, 32, 0.04);
     }
     .badge {
       display: inline-block;
@@ -90,10 +103,10 @@
       font-size: 0.95rem;
       margin-bottom: 1rem;
     }
-    .badge.SUPPORTED { background: rgba(61,139,110,0.25); color: #8fd6b5; }
-    .badge.CLOSE_WITH_DIFF { background: rgba(196,154,60,0.22); color: #f0d48a; }
-    .badge.ATTRIBUTED_RULING { background: rgba(138,107,90,0.28); color: #e2c2b0; }
-    .badge.UNDETERMINED { background: rgba(183,196,186,0.15); color: var(--muted); }
+    .badge.SUPPORTED { background: var(--ok-bg); color: var(--ok); }
+    .badge.CLOSE_WITH_DIFF { background: var(--warn-bg); color: var(--warn); }
+    .badge.ATTRIBUTED_RULING { background: #f5ebe4; color: #7a5340; }
+    .badge.UNDETERMINED { background: var(--undetermined-bg); color: var(--undetermined); }
     .verse {
       font-family: "Amiri Quran", serif;
       font-size: 1.45rem;
@@ -101,11 +114,11 @@
       margin: 1rem 0;
     }
     .meta { color: var(--muted); font-size: 0.95rem; line-height: 1.7; }
-    .diff del { background: rgba(180,60,60,0.25); text-decoration: none; }
-    .diff ins { background: rgba(61,139,110,0.25); text-decoration: none; }
+    .diff del { background: var(--danger-bg); text-decoration: none; }
+    .diff ins { background: var(--ok-bg); text-decoration: none; }
     .hl-equal { color: var(--ink); }
-    .hl-replace, .hl-insert { background: rgba(196,154,60,0.35); border-radius: 3px; }
-    .hl-insert_marker { color: #f0b0a0; font-weight: 700; }
+    .hl-replace, .hl-insert { background: var(--warn-bg); border-radius: 3px; }
+    .hl-insert_marker { color: var(--danger); font-weight: 700; }
     .foot {
       margin-top: 1.5rem;
       padding-top: 1rem;
