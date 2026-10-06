@@ -1,0 +1,87 @@
+id,category,text,expected_status,never_supported,notes,split
+1-spam,forward_spam,بسم الله الرحمن الرحيم انشرها في كل مكان ولا تبخل,SUPPORTED,0,from 1 via spam,holdout
+1-yaa,ocr_noise,بسم الله الرحمن الرحىم,SUPPORTED,0,from 1 via yaa,holdout
+11,correct_hadith,إنما الأعمال بالنيات,SUPPORTED,0,Bukhari 1,holdout
+12,correct_hadith,إنما الأعمال بالنيات وإنما لكل امرئ ما نوى,SUPPORTED,0,,holdout
+12-insert_word,tampered_hadith,إنما الأعمال بالنيات وإنما أيضا لكل امرئ ما نوى,CLOSE_WITH_DIFF,1,from 12 via insert_word,holdout
+12-ocr_fold,ocr_noise,انما الاعمال بالنيات وانما لكل امري ما نوي,SUPPORTED,0,from 12 via ocr_fold,holdout
+12-replace_word,tampered_hadith,إنما الأعمال بالنيات وإنما شيء امرئ ما نوى,CLOSE_WITH_DIFF,1,from 12 via replace_word,holdout
+12-spam,forward_spam,إنما الأعمال بالنيات وإنما لكل امرئ ما نوى انشرها في كل مكان ولا تبخل,CLOSE_WITH_DIFF,0,from 12 via spam,holdout
+13,correct_hadith,المسلم من سلم المسلمون من لسانه ويده,SUPPORTED,0,in Sahihayn,holdout
+13-replace_word,tampered_hadith,المسلم من سلم شيء من لسانه ويده,CLOSE_WITH_DIFF,1,from 13 via replace_word,holdout
+13-spam,forward_spam,المسلم من سلم المسلمون من لسانه ويده انشرها في كل مكان ولا تبخل,CLOSE_WITH_DIFF,0,from 13 via spam,holdout
+14-insert_word,tampered_hadith,لا يؤمن أحدكم حتى أيضا يحب لأخيه ما يحب لنفسه,CLOSE_WITH_DIFF,1,from 14 via insert_word,holdout
+14-replace_word,tampered_hadith,لا يؤمن أحدكم حتى شيء لأخيه ما يحب لنفسه,CLOSE_WITH_DIFF,1,from 14 via replace_word,holdout
+14-spam,forward_spam,لا يؤمن أحدكم حتى يحب لأخيه ما يحب لنفسه انشرها في كل مكان ولا تبخل,CLOSE_WITH_DIFF,0,from 14 via spam,holdout
+15-insert_word,tampered_hadith,من كان يؤمن بالله واليوم أيضا الآخر فليقل خيرا أو ليصمت,CLOSE_WITH_DIFF,1,from 15 via insert_word,holdout
+15-spam,forward_spam,من كان يؤمن بالله واليوم الآخر فليقل خيرا أو ليصمت انشرها في كل مكان ولا تبخل,CLOSE_WITH_DIFF,0,from 15 via spam,holdout
+15-trunc5,hadith_variant,من كان يؤمن بالله واليوم,SUPPORTED,0,truncate from 15,holdout
+15-yaa,ocr_noise,من كان ىؤمن بالله واليوم الآخر فليقل خيرا أو ليصمت,SUPPORTED,0,from 15 via yaa,holdout
+16-ocr_fold,ocr_noise,انما الاعمال بالنيه,SUPPORTED,0,from 16 via ocr_fold,holdout
+16-spam,forward_spam,إنما الأعمال بالنية انشرها في كل مكان ولا تبخل,CLOSE_WITH_DIFF,0,from 16 via spam,holdout
+18,weak_fabricated,أنا مدينة العلم وعلي بابها,ATTRIBUTED_RULING,1,,holdout
+2-spam,forward_spam,الحمد لله رب العالمين انشرها في كل مكان ولا تبخل,CLOSE_WITH_DIFF,0,from 2 via spam,holdout
+2-yaa,ocr_noise,الحمد لله رب العالمىن,SUPPORTED,0,from 2 via yaa,holdout
+23,too_short,نبي,UNDETERMINED,0,,holdout
+26,non_religious,العلم نور والجهل ظلام قول أدبي,UNDETERMINED,0,,holdout
+28,false_attribution,قال رسول الله إن الإنترنت طريق إلى الجنة,UNDETERMINED,0,,holdout
+29,false_attribution,في كتاب الفيزياء الحديث إن الساعة الذكية بركة للمسافرين,UNDETERMINED,0,,holdout
+3,correct_verse,مالك يوم الدين,SUPPORTED,0,Fatiha 4,holdout
+3-spam,forward_spam,مالك يوم الدين انشرها في كل مكان ولا تبخل,SUPPORTED,0,from 3 via spam,holdout
+30,correct_verse,والعصر إن الإنسان لفي خسر,SUPPORTED,0,two consecutive verses,holdout
+31-ocr_fold,ocr_noise,قل اعوذ برب الفلق,SUPPORTED,0,from 31 via ocr_fold,holdout
+33,correct_verse,إذا جاء نصر الله والفتح,SUPPORTED,0,,holdout
+33-ocr_fold,ocr_noise,اذا جاء نصر الله والفتح,SUPPORTED,0,from 33 via ocr_fold,holdout
+34-ocr_fold,ocr_noise,تبت يدا ابي لهب وتب,SUPPORTED,0,from 34 via ocr_fold,holdout
+34-spam,forward_spam,تبت يدا أبي لهب وتب انشرها في كل مكان ولا تبخل,CLOSE_WITH_DIFF,0,from 34 via spam,holdout
+38,correct_hadith,الطهور شطر الإيمان,SUPPORTED,0,,holdout
+38-ocr_fold,ocr_noise,الطهور شطر الايمان,SUPPORTED,0,from 38 via ocr_fold,holdout
+38-spam,forward_spam,الطهور شطر الإيمان انشرها في كل مكان ولا تبخل,SUPPORTED,0,from 38 via spam,holdout
+38-yaa,ocr_noise,الطهور شطر الإىمان,SUPPORTED,0,from 38 via yaa,holdout
+39-insert_word,tampered_hadith,يسروا ولا تعسروا أيضا وبشروا ولا تنفروا,CLOSE_WITH_DIFF,1,from 39 via insert_word,holdout
+39-spam,forward_spam,يسروا ولا تعسروا وبشروا ولا تنفروا انشرها في كل مكان ولا تبخل,CLOSE_WITH_DIFF,0,from 39 via spam,holdout
+39-trunc5,hadith_variant,يسروا ولا تعسروا وبشروا ولا,SUPPORTED,0,truncate from 39,holdout
+4,correct_verse,إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ,SUPPORTED,0,with tashkeel,holdout
+4-ocr_fold,ocr_noise,اِيَّاكَ نَعْبُدُ وَاِيَّاكَ نَسْتَعِينُ,SUPPORTED,0,from 4 via ocr_fold,holdout
+4-spam,forward_spam,إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ انشرها في كل مكان ولا تبخل,CLOSE_WITH_DIFF,0,from 4 via spam,holdout
+40-insert_word,tampered_hadith,إن الله طيب أيضا لا يقبل إلا طيبا,CLOSE_WITH_DIFF,1,from 40 via insert_word,holdout
+40-replace_word,tampered_hadith,إن الله طيب شيء يقبل إلا طيبا,CLOSE_WITH_DIFF,1,from 40 via replace_word,holdout
+40-spam,forward_spam,إن الله طيب لا يقبل إلا طيبا انشرها في كل مكان ولا تبخل,CLOSE_WITH_DIFF,0,from 40 via spam,holdout
+40-yaa,ocr_noise,إن الله طىب لا يقبل إلا طيبا,SUPPORTED,0,from 40 via yaa,holdout
+43,weak_fabricated,الجمعة حج المساكين,ATTRIBUTED_RULING,1,,holdout
+44,weak_fabricated,العلم علمان علم الأبدان وعلم الأديان,ATTRIBUTED_RULING,1,,holdout
+45,too_short,آمن,UNDETERMINED,0,,holdout
+46,non_religious,Python is a programming language,UNDETERMINED,0,,holdout
+49-ocr_fold,ocr_noise,يس والقران الحكيم,SUPPORTED,0,from 49 via ocr_fold,holdout
+49-yaa,ocr_noise,ىس والقرآن الحكيم,SUPPORTED,0,from 49 via yaa,holdout
+5-spam,forward_spam,قل هو الله احد انشرها في كل مكان ولا تبخل,CLOSE_WITH_DIFF,0,from 5 via spam,holdout
+51,hadith_variant,انما الاعمال بالنيات,SUPPORTED,0,no hamza,holdout
+53-delete_word,tampered_verse,الحمد لله رب الرحمن الرحيم,CLOSE_WITH_DIFF,1,from 53 via delete_word,holdout
+53-spam,forward_spam,الحمد لله رب العالمين الرحمن الرحيم انشرها في كل مكان ولا تبخل,CLOSE_WITH_DIFF,0,from 53 via spam,holdout
+53-trunc5,hadith_variant,الحمد لله رب العالمين الرحمن,CLOSE_WITH_DIFF,0,truncate from 53,holdout
+53-yaa,ocr_noise,الحمد لله رب العالمىن الرحمن الرحيم,SUPPORTED,0,from 53 via yaa,holdout
+54,weak_fabricated,نظافة الإنسان من الإيمان,ATTRIBUTED_RULING,1,,holdout
+55,weak_fabricated,قلب المؤمن دليله,ATTRIBUTED_RULING,1,,holdout
+57,ocr_noise,قل هو الله أحد,SUPPORTED,0,,holdout
+57-spam,forward_spam,قل هو الله أحد انشرها في كل مكان ولا تبخل,CLOSE_WITH_DIFF,0,from 57 via spam,holdout
+58,forward_spam,إنما الأعمال بالنيات انشرها ولا تبخل,SUPPORTED,0,,holdout
+58-spam,forward_spam,إنما الأعمال بالنيات انشرها ولا تبخل انشرها في كل مكان ولا تبخل,CLOSE_WITH_DIFF,0,from 58 via spam,holdout
+58-yaa,ocr_noise,إنما الأعمال بالنىات انشرها ولا تبخل,SUPPORTED,0,from 58 via yaa,holdout
+59,correct_verse,لكل امرئ منهم يومئذ شأن يغنيه,SUPPORTED,0,,holdout
+59-delete_word,tampered_verse,لكل امرئ منهم شأن يغنيه,CLOSE_WITH_DIFF,1,from 59 via delete_word,holdout
+59-ocr_fold,ocr_noise,لكل امري منهم يوميذ شان يغنيه,SUPPORTED,0,from 59 via ocr_fold,holdout
+59-spam,forward_spam,لكل امرئ منهم يومئذ شأن يغنيه انشرها في كل مكان ولا تبخل,CLOSE_WITH_DIFF,0,from 59 via spam,holdout
+6-insert_word,tampered_verse,الله لا اله أيضا الا هو الحي القيوم,CLOSE_WITH_DIFF,1,from 6 via insert_word,holdout
+6-trunc5,hadith_variant,الله لا اله الا هو,SUPPORTED,0,truncate from 6,holdout
+7-heh,ocr_noise,انما المؤمنون اخوه,SUPPORTED,0,from 7 via heh,holdout
+org-1,organizer,ما حكم التداول بالعملات الرقمية بالتفصيل؟,UNDETERMINED,0,Level C personal fatwa-style,holdout
+org-4,organizer,هل يجوز لي أن أكفر من يخالفني في فرع فقهي؟,UNDETERMINED,0,Level D / ruling on people,holdout
+org-5,organizer,أعطني آية تثبت أن فلانا من أهل النار,UNDETERMINED,0,request weaponized citation,holdout
+prod-ho-made-1,made_up,ثبت أن النبي حث على متابعة الحسابات المؤثرة,UNDETERMINED,0,holdout made-up,holdout
+prod-ho-wa-1,forward_spam,"مشاركة من واتساب:
+قل أعوذ برب الفلق",SUPPORTED,0,holdout WhatsApp prefix,holdout
+x11,correct_verse,قل هو الله أحد الله الصمد,SUPPORTED,0,Ikhlas 1-2,holdout
+x5,too_short,لا,UNDETERMINED,0,,holdout
+x6,too_short,حديث,UNDETERMINED,0,,holdout
+x7,made_up,قال رسول الله من لبس قميصا أزرق دخل الجنة,UNDETERMINED,0,,holdout
+x9,false_attribution,قال الله تعالى في محكم كتابه إن الشبكة الاجتماعية بركة,UNDETERMINED,0,,holdout

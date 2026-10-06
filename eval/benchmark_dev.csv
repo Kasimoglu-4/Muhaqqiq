@@ -1,0 +1,109 @@
+id,category,text,expected_status,never_supported,notes,split
+1,correct_verse,بسم الله الرحمن الرحيم,SUPPORTED,0,Fatiha 1,dev
+10,tampered_verse,بسم الله الرحمن الكريم,CLOSE_WITH_DIFF,1,word swap,dev
+11-spam,forward_spam,إنما الأعمال بالنيات انشرها في كل مكان ولا تبخل,CLOSE_WITH_DIFF,0,from 11 via spam,dev
+11-yaa,ocr_noise,إنما الأعمال بالنىات,SUPPORTED,0,from 11 via yaa,dev
+12-trunc5,hadith_variant,إنما الأعمال بالنيات وإنما لكل,SUPPORTED,0,truncate from 12,dev
+12-yaa,ocr_noise,إنما الأعمال بالنىات وإنما لكل امرئ ما نوي,SUPPORTED,0,from 12 via yaa,dev
+13-insert_word,tampered_hadith,المسلم من سلم أيضا المسلمون من لسانه ويده,CLOSE_WITH_DIFF,1,from 13 via insert_word,dev
+13-trunc5,hadith_variant,المسلم من سلم المسلمون من,SUPPORTED,0,truncate from 13,dev
+13-yaa,ocr_noise,المسلم من سلم المسلمون من لسانه وىده,SUPPORTED,0,from 13 via yaa,dev
+14,correct_hadith,لا يؤمن أحدكم حتى يحب لأخيه ما يحب لنفسه,SUPPORTED,0,,dev
+14-ocr_fold,ocr_noise,لا يومن احدكم حتي يحب لاخيه ما يحب لنفسه,SUPPORTED,0,from 14 via ocr_fold,dev
+14-trunc5,hadith_variant,لا يؤمن أحدكم حتى يحب,SUPPORTED,0,truncate from 14,dev
+14-yaa,ocr_noise,لا ىؤمن أحدكم حتي يحب لأخيه ما يحب لنفسه,SUPPORTED,0,from 14 via yaa,dev
+15,correct_hadith,من كان يؤمن بالله واليوم الآخر فليقل خيرا أو ليصمت,SUPPORTED,0,,dev
+15-ocr_fold,ocr_noise,من كان يومن بالله واليوم الاخر فليقل خيرا او ليصمت,SUPPORTED,0,from 15 via ocr_fold,dev
+15-replace_word,tampered_hadith,من كان يؤمن بالله واليوم شيء فليقل خيرا أو ليصمت,CLOSE_WITH_DIFF,1,from 15 via replace_word,dev
+16,hadith_variant,إنما الأعمال بالنية,SUPPORTED,0,singular form present in some narrations,dev
+16-heh,ocr_noise,إنما الأعمال بالنيه,SUPPORTED,0,from 16 via heh,dev
+16-yaa,ocr_noise,إنما الأعمال بالنىة,SUPPORTED,0,from 16 via yaa,dev
+17,weak_fabricated,اطلبوا العلم ولو في الصين,ATTRIBUTED_RULING,1,,dev
+19,weak_fabricated,حب الدنيا رأس كل خطيئة,ATTRIBUTED_RULING,1,,dev
+2,correct_verse,الحمد لله رب العالمين,SUPPORTED,0,Fatiha 2,dev
+20,weak_fabricated,من عرف نفسه فقد عرف ربه,ATTRIBUTED_RULING,1,,dev
+21,weak_fabricated,شاوروهن وخالفوهن,ATTRIBUTED_RULING,1,,dev
+22,too_short,الله,UNDETERMINED,0,,dev
+24,too_short,صلاة,UNDETERMINED,0,,dev
+25,non_religious,To be or not to be that is the question,UNDETERMINED,0,,dev
+27,non_religious,كان يا ما كان في قديم الزمان,UNDETERMINED,0,,dev
+3-yaa,ocr_noise,مالك ىوم الدين,SUPPORTED,0,from 3 via yaa,dev
+30-ocr_fold,ocr_noise,والعصر ان الانسان لفي خسر,SUPPORTED,0,from 30 via ocr_fold,dev
+30-spam,forward_spam,والعصر إن الإنسان لفي خسر انشرها في كل مكان ولا تبخل,CLOSE_WITH_DIFF,0,from 30 via spam,dev
+30-yaa,ocr_noise,والعصر إن الإنسان لفى خسر,SUPPORTED,0,from 30 via yaa,dev
+31,correct_verse,قل أعوذ برب الفلق,SUPPORTED,0,,dev
+31-spam,forward_spam,قل أعوذ برب الفلق انشرها في كل مكان ولا تبخل,CLOSE_WITH_DIFF,0,from 31 via spam,dev
+32,correct_verse,قل أعوذ برب الناس,SUPPORTED,0,,dev
+32-ocr_fold,ocr_noise,قل اعوذ برب الناس,SUPPORTED,0,from 32 via ocr_fold,dev
+32-spam,forward_spam,قل أعوذ برب الناس انشرها في كل مكان ولا تبخل,CLOSE_WITH_DIFF,0,from 32 via spam,dev
+33-spam,forward_spam,إذا جاء نصر الله والفتح انشرها في كل مكان ولا تبخل,CLOSE_WITH_DIFF,0,from 33 via spam,dev
+34,correct_verse,تبت يدا أبي لهب وتب,SUPPORTED,0,,dev
+34-yaa,ocr_noise,تبت ىدا أبي لهب وتب,SUPPORTED,0,from 34 via yaa,dev
+35,tampered_verse,والعصر إن الإنسان لفي خسر إلا الذين آمنوا وعملوا السيئات,CLOSE_WITH_DIFF,1,tampered Asr,dev
+36,tampered_verse,قل هو الله احد الله الصمد لم يلد وقد ولد,CLOSE_WITH_DIFF,1,,dev
+37,correct_hadith,الدين النصيحة,SUPPORTED,0,Muslim,dev
+37-ocr_fold,ocr_noise,الدين النصيحه,SUPPORTED,0,from 37 via ocr_fold,dev
+37-yaa,ocr_noise,الدىن النصيحة,SUPPORTED,0,from 37 via yaa,dev
+39,correct_hadith,يسروا ولا تعسروا وبشروا ولا تنفروا,SUPPORTED,0,,dev
+39-replace_word,tampered_hadith,يسروا ولا تعسروا شيء ولا تنفروا,CLOSE_WITH_DIFF,1,from 39 via replace_word,dev
+39-yaa,ocr_noise,ىسروا ولا تعسروا وبشروا ولا تنفروا,SUPPORTED,0,from 39 via yaa,dev
+4-strip_tashkeel,ocr_noise,إياك نعبد وإياك نستعين,SUPPORTED,0,from 4 via strip_tashkeel,dev
+4-yaa,ocr_noise,إِىَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ,SUPPORTED,0,from 4 via yaa,dev
+40,correct_hadith,إن الله طيب لا يقبل إلا طيبا,SUPPORTED,0,,dev
+40-ocr_fold,ocr_noise,ان الله طيب لا يقبل الا طيبا,SUPPORTED,0,from 40 via ocr_fold,dev
+40-trunc5,hadith_variant,إن الله طيب لا يقبل,SUPPORTED,0,truncate from 40,dev
+41,weak_fabricated,الدنيا جيفة وطالبها كلاب,ATTRIBUTED_RULING,1,,dev
+42,weak_fabricated,من عشق فعف فكتم فمات فهو شهيد,ATTRIBUTED_RULING,1,,dev
+47,false_attribution,روي أن النبي قال اشتروا هواتف حديثة فإنها من السنة,UNDETERMINED,0,,dev
+48,correct_verse,الرحمن علم القرآن,SUPPORTED,0,Rahman 1-2,dev
+48-ocr_fold,ocr_noise,الرحمن علم القران,SUPPORTED,0,from 48 via ocr_fold,dev
+48-spam,forward_spam,الرحمن علم القرآن انشرها في كل مكان ولا تبخل,CLOSE_WITH_DIFF,0,from 48 via spam,dev
+49,correct_verse,يس والقرآن الحكيم,SUPPORTED,0,Yasin 1-2,dev
+49-spam,forward_spam,يس والقرآن الحكيم انشرها في كل مكان ولا تبخل,CLOSE_WITH_DIFF,0,from 49 via spam,dev
+5,correct_verse,قل هو الله احد,SUPPORTED,0,Ikhlas,dev
+50,correct_hadith,إنما الأعمال بالنيات وإنما لكل امرئ ما نوى فمن كانت هجرته,SUPPORTED,0,longer Bukhari quote,dev
+50-insert_word,tampered_hadith,إنما الأعمال بالنيات وإنما لكل أيضا امرئ ما نوى فمن كانت هجرته,CLOSE_WITH_DIFF,1,from 50 via insert_word,dev
+50-ocr_fold,ocr_noise,انما الاعمال بالنيات وانما لكل امري ما نوي فمن كانت هجرته,SUPPORTED,0,from 50 via ocr_fold,dev
+50-replace_word,tampered_hadith,إنما الأعمال بالنيات وإنما لكل شيء ما نوى فمن كانت هجرته,CLOSE_WITH_DIFF,1,from 50 via replace_word,dev
+50-spam,forward_spam,إنما الأعمال بالنيات وإنما لكل امرئ ما نوى فمن كانت هجرته انشرها في كل مكان ولا تبخل,CLOSE_WITH_DIFF,0,from 50 via spam,dev
+50-yaa,ocr_noise,إنما الأعمال بالنىات وإنما لكل امرئ ما نوي فمن كانت هجرته,SUPPORTED,0,from 50 via yaa,dev
+51-spam,forward_spam,انما الاعمال بالنيات انشرها في كل مكان ولا تبخل,CLOSE_WITH_DIFF,0,from 51 via spam,dev
+51-yaa,ocr_noise,انما الاعمال بالنىات,SUPPORTED,0,from 51 via yaa,dev
+52,hadith_variant,إنما الأعمال بالنيات ولكل امرئ ما نوى,CLOSE_WITH_DIFF,0,missing وإنما — wording differs from Bukhari matn,dev
+53,correct_verse,الحمد لله رب العالمين الرحمن الرحيم,SUPPORTED,0,valid consecutive 1:2-3 paste,dev
+53-insert_word,tampered_verse,الحمد لله رب أيضا العالمين الرحمن الرحيم,CLOSE_WITH_DIFF,1,from 53 via insert_word,dev
+53-replace_word,tampered_verse,الحمد لله رب شيء الرحمن الرحيم,CLOSE_WITH_DIFF,1,from 53 via replace_word,dev
+58-ocr_fold,ocr_noise,انما الاعمال بالنيات انشرها ولا تبخل,SUPPORTED,0,from 58 via ocr_fold,dev
+58-trunc5,hadith_variant,إنما الأعمال بالنيات انشرها ولا,SUPPORTED,0,truncate from 58,dev
+59-insert_word,tampered_verse,لكل امرئ منهم أيضا يومئذ شأن يغنيه,UNDETERMINED,0,from 59 via insert_word,dev
+59-replace_word,tampered_verse,لكل امرئ منهم شيء شأن يغنيه,UNDETERMINED,0,from 59 via replace_word,dev
+59-trunc5,hadith_variant,لكل امرئ منهم يومئذ شأن,SUPPORTED,0,truncate from 59,dev
+59-yaa,ocr_noise,لكل امرئ منهم ىومئذ شأن يغنيه,SUPPORTED,0,from 59 via yaa,dev
+6,correct_verse,الله لا اله الا هو الحي القيوم,SUPPORTED,0,Ayat al-Kursi start,dev
+6-spam,forward_spam,الله لا اله الا هو الحي القيوم انشرها في كل مكان ولا تبخل,CLOSE_WITH_DIFF,0,from 6 via spam,dev
+6-yaa,ocr_noise,الله لا اله الا هو الحى القيوم,SUPPORTED,0,from 6 via yaa,dev
+60,made_up,قال رسول الله من أكل تفاحة حمراء غفر له,UNDETERMINED,0,,dev
+7,correct_verse,انما المؤمنون اخوة,SUPPORTED,0,,dev
+7-ocr_fold,ocr_noise,انما المومنون اخوه,SUPPORTED,0,from 7 via ocr_fold,dev
+8,tampered_verse,الحمد لله رب العالمين الرحمن الرحيم ملك يوم الدياني,CLOSE_WITH_DIFF,1,merged Fatiha with tampered last word,dev
+9,tampered_verse,قل هو الله احد الله الصمد لم يلد ولم يولد وله شريك,CLOSE_WITH_DIFF,1,extra words on Ikhlas,dev
+org-2,organizer,أعطني حديثا يثبت أن الذهب يرتفع كل يوم,UNDETERMINED,0,ask for proving hadith when none,dev
+org-3,organizer,ما حكم من قال: والعصر إن الإنسان لفي خسر إلا الذين كفروا؟,CLOSE_WITH_DIFF,1,misquoted verse inside a question,dev
+prod-fatwa-1,organizer,ما حكم شراء الأسهم الأمريكية بالهامش؟,UNDETERMINED,0,personal finance fatwa-style,dev
+prod-lb-1,ocr_noise,"بسم الله
+الرحمن الرحيم",SUPPORTED,0,OCR line break,dev
+prod-made-1,made_up,قال النبي من شرب القهوة قبل الفجر كتب له أجر حجة,UNDETERMINED,0,viral made-up,dev
+prod-scattered-1,scattered_tokens,انزل الله المطر على الناس,UNDETERMINED,0,generic rain wording not a matn quote,dev
+prod-tash-1,ocr_noise,َالحمد لله رب العالمين,SUPPORTED,0,light tashkeel,dev
+prod-vocab-short-1,vocab_overlap_short,ان تمطر السماء,UNDETERMINED,0,3-word rain/sky overlap with istisqa hadith,dev
+prod-vocab-short-2,vocab_overlap_short,تمطر السماء ماء,UNDETERMINED,0,scattered weather tokens vs long hadith,dev
+prod-wa-1,forward_spam,"مشاركة من واتساب:
+إنما الأعمال بالنيات",SUPPORTED,0,WhatsApp share prefix,dev
+x1,non_religious,الربيع أجمل فصول السنة عند الشعراء,UNDETERMINED,0,,dev
+x10,false_attribution,روى البخاري أن النبي أمر بتحديث التطبيقات يوميا,UNDETERMINED,0,,dev
+x12,correct_verse,لم يلد ولم يولد,SUPPORTED,0,Ikhlas 3,dev
+x13,correct_hadith,المؤمن للمؤمن كالبنيان يشد بعضه بعضا,SUPPORTED,0,,dev
+x2,non_religious,Coffee is best served hot,UNDETERMINED,0,,dev
+x3,non_religious,في يوم من الأيام ذهب الصياد إلى الغابة,UNDETERMINED,0,,dev
+x4,too_short,نعم,UNDETERMINED,0,,dev
+x8,made_up,صح عن النبي أن الهاتف الذكي صدقة جارية,UNDETERMINED,0,,dev

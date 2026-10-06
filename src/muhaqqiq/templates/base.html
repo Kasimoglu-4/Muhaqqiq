@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ title }} · مُحقِّق</title>
+  {% if og_title %}
+  <meta property="og:title" content="{{ og_title }}" />
+  <meta property="og:description" content="{{ og_description or '' }}" />
+  <meta property="og:type" content="website" />
+  {% if og_image %}<meta property="og:image" content="{{ og_image }}" />{% endif %}
+  {% endif %}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=IBM+Plex+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg0: #0f1a14;
+      --bg1: #1a2e24;
+      --ink: #f2f5f0;
+      --muted: #b7c4ba;
+      --accent: #c4a35a;
+      --ok: #3d8b6e;
+      --warn: #c49a3c;
+      --bad: #8a6b5a;
+      --line: rgba(242, 245, 240, 0.12);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "IBM Plex Sans Arabic", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 600px at 80% -10%, rgba(196, 163, 90, 0.18), transparent 55%),
+        radial-gradient(900px 500px at 0% 100%, rgba(61, 139, 110, 0.16), transparent 50%),
+        linear-gradient(160deg, var(--bg0), var(--bg1));
+    }
+    main {
+      width: min(720px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 2.5rem 0 4rem;
+    }
+    h1 {
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-weight: 700;
+      margin: 0 0 0.35rem;
+      letter-spacing: -0.02em;
+    }
+    .brand { color: var(--accent); }
+    .lead { color: var(--muted); margin: 0 0 1.75rem; line-height: 1.7; }
+    textarea {
+      width: 100%;
+      min-height: 160px;
+      resize: vertical;
+      border: 1px solid var(--line);
+      background: rgba(0,0,0,0.25);
+      color: var(--ink);
+      border-radius: 12px;
+      padding: 1rem 1.1rem;
+      font: inherit;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    button, .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      border: 0;
+      border-radius: 10px;
+      padding: 0.85rem 1.4rem;
+      background: var(--accent);
+      color: #1a1408;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    button:hover, .btn:hover { filter: brightness(1.05); }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 1.4rem 1.5rem;
+      background: rgba(0,0,0,0.22);
+    }
+    .badge {
+      display: inline-block;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+    .badge.SUPPORTED { background: rgba(61,139,110,0.25); color: #8fd6b5; }
+    .badge.CLOSE_WITH_DIFF { background: rgba(196,154,60,0.22); color: #f0d48a; }
+    .badge.ATTRIBUTED_RULING { background: rgba(138,107,90,0.28); color: #e2c2b0; }
+    .badge.UNDETERMINED { background: rgba(183,196,186,0.15); color: var(--muted); }
+    .verse {
+      font-family: "Amiri Quran", serif;
+      font-size: 1.45rem;
+      line-height: 2.1;
+      margin: 1rem 0;
+    }
+    .meta { color: var(--muted); font-size: 0.95rem; line-height: 1.7; }
+    .diff del { background: rgba(180,60,60,0.25); text-decoration: none; }
+    .diff ins { background: rgba(61,139,110,0.25); text-decoration: none; }
+    .hl-equal { color: var(--ink); }
+    .hl-replace, .hl-insert { background: rgba(196,154,60,0.35); border-radius: 3px; }
+    .hl-insert_marker { color: #f0b0a0; font-weight: 700; }
+    .foot {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.65;
+    }
+    a { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

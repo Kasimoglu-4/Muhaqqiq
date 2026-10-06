@@ -1,0 +1,75 @@
+{
+  "source": "README.md",
+  "sources": [
+    {
+      "name": "Tanzil.net (via quran-json)",
+      "use": "Quran Arabic text (Core)",
+      "license": "CC BY 3.0 — verbatim only; link [Tanzil.net](https://tanzil.net/) on verse cards",
+      "attribution": "Quran text from Tanzil.net",
+      "version": "quran-json@3.1.2 (`dist/quran.json`)",
+      "url": "https://tanzil.net/",
+      "script": "`pipeline/download_quran.py`",
+      "status": "used"
+    },
+    {
+      "name": "fawazahmed0/hadith-api",
+      "use": "Arabic Bukhari & Muslim (Core)",
+      "license": "Check each edition in [editions.json](https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions.json); Unlicense packaging",
+      "attribution": "fawazahmed0/hadith-api",
+      "version": "hadith-api@1 (`ara-bukhari`, `ara-muslim`)",
+      "url": "https://github.com/fawazahmed0/hadith-api",
+      "script": "`pipeline/download_hadith.py`",
+      "status": "used"
+    },
+    {
+      "name": "Curated fabricated/weak seed",
+      "use": "Known claims + attributed rulings (one or more per claim)",
+      "license": "Per-row grader/reference",
+      "attribution": "Named graders only",
+      "version": "seed-v0",
+      "url": "",
+      "script": "`data/fabricated_seed.csv`",
+      "status": "used"
+    },
+    {
+      "name": "QuranEnc API",
+      "use": "Quran meanings EN/TR (Add-next)",
+      "license": "No modify; credit [QuranEnc.com](https://quranenc.com/); mention edition key + publisher",
+      "attribution": "QuranEnc · see editions below",
+      "version": "API v1 · english_saheeh + turkish_rwwad (114 suras)",
+      "url": "https://quranenc.com/",
+      "script": "`pipeline/download_quranenc.py`",
+      "status": "used"
+    },
+    {
+      "name": "HadeethEnc API",
+      "use": "Grades + hadith translations EN/TR (Add-next)",
+      "license": "No modify; credit [HadeethEnc.com](https://hadeethenc.com/); keep per-row attribution",
+      "attribution": "HadeethEnc",
+      "version": "API v1 · pinned bundle (~3574 items)",
+      "url": "https://hadeethenc.com/",
+      "script": "`pipeline/download_hadeethenc.py`",
+      "status": "used"
+    },
+    {
+      "name": "King Fahd Complex / Quranpedia",
+      "use": "Verse verification link-out",
+      "license": "Link out only — not stored as primary corpus",
+      "attribution": "Link to official viewer",
+      "version": "n/a",
+      "url": "https://qurancomplex.gov.sa/",
+      "script": "—",
+      "status": "link_out"
+    },
+    {
+      "name": "Dorar al-Sunniyyah",
+      "use": "Scholar rulings encyclopedia",
+      "license": "**Written permission required before bulk ingest**",
+      "attribution": "Named muhaddithin",
+      "version": "blocked",
+      "url": "https://dorar.net/",
+      "script": "—",
+      "status": "blocked"
+    }
+  ]
+}

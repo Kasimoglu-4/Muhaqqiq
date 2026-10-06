@@ -1,0 +1,61 @@
+id,category,text,expected_status,never_supported,notes
+1,correct_verse,بسم الله الرحمن الرحيم,SUPPORTED,0,Fatiha 1
+2,correct_verse,الحمد لله رب العالمين,SUPPORTED,0,Fatiha 2
+3,correct_verse,مالك يوم الدين,SUPPORTED,0,Fatiha 4
+4,correct_verse,إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ,SUPPORTED,0,with tashkeel
+5,correct_verse,قل هو الله احد,SUPPORTED,0,Ikhlas
+6,correct_verse,الله لا اله الا هو الحي القيوم,SUPPORTED,0,Ayat al-Kursi start
+7,correct_verse,انما المؤمنون اخوة,SUPPORTED,0,
+8,tampered_verse,الحمد لله رب العالمين الرحمن الرحيم ملك يوم الدياني,CLOSE_WITH_DIFF,1,merged Fatiha with tampered last word
+9,tampered_verse,قل هو الله احد الله الصمد لم يلد ولم يولد وله شريك,CLOSE_WITH_DIFF,1,extra words on Ikhlas
+10,tampered_verse,بسم الله الرحمن الكريم,CLOSE_WITH_DIFF,1,word swap
+11,correct_hadith,إنما الأعمال بالنيات,SUPPORTED,0,Bukhari 1
+12,correct_hadith,إنما الأعمال بالنيات وإنما لكل امرئ ما نوى,SUPPORTED,0,
+13,correct_hadith,المسلم من سلم المسلمون من لسانه ويده,SUPPORTED,0,in Sahihayn
+14,correct_hadith,لا يؤمن أحدكم حتى يحب لأخيه ما يحب لنفسه,SUPPORTED,0,
+15,correct_hadith,من كان يؤمن بالله واليوم الآخر فليقل خيرا أو ليصمت,SUPPORTED,0,
+16,hadith_variant,إنما الأعمال بالنية,SUPPORTED,0,singular form present in some narrations
+17,weak_fabricated,اطلبوا العلم ولو في الصين,ATTRIBUTED_RULING,1,
+18,weak_fabricated,أنا مدينة العلم وعلي بابها,ATTRIBUTED_RULING,1,
+19,weak_fabricated,حب الدنيا رأس كل خطيئة,ATTRIBUTED_RULING,1,
+20,weak_fabricated,من عرف نفسه فقد عرف ربه,ATTRIBUTED_RULING,1,
+21,weak_fabricated,شاوروهن وخالفوهن,ATTRIBUTED_RULING,1,
+22,too_short,الله,UNDETERMINED,0,
+23,too_short,نبي,UNDETERMINED,0,
+24,too_short,صلاة,UNDETERMINED,0,
+25,non_religious,To be or not to be that is the question,UNDETERMINED,0,
+26,non_religious,العلم نور والجهل ظلام قول أدبي,UNDETERMINED,0,
+27,non_religious,كان يا ما كان في قديم الزمان,UNDETERMINED,0,
+28,false_attribution,قال رسول الله إن الإنترنت طريق إلى الجنة,UNDETERMINED,0,
+29,false_attribution,في كتاب الفيزياء الحديث إن الساعة الذكية بركة للمسافرين,UNDETERMINED,0,
+30,correct_verse,والعصر إن الإنسان لفي خسر,SUPPORTED,0,two consecutive verses
+31,correct_verse,قل أعوذ برب الفلق,SUPPORTED,0,
+32,correct_verse,قل أعوذ برب الناس,SUPPORTED,0,
+33,correct_verse,إذا جاء نصر الله والفتح,SUPPORTED,0,
+34,correct_verse,تبت يدا أبي لهب وتب,SUPPORTED,0,
+35,tampered_verse,والعصر إن الإنسان لفي خسر إلا الذين آمنوا وعملوا السيئات,CLOSE_WITH_DIFF,1,tampered Asr
+36,tampered_verse,قل هو الله احد الله الصمد لم يلد وقد ولد,CLOSE_WITH_DIFF,1,
+37,correct_hadith,الدين النصيحة,SUPPORTED,0,Muslim
+38,correct_hadith,الطهور شطر الإيمان,SUPPORTED,0,
+39,correct_hadith,يسروا ولا تعسروا وبشروا ولا تنفروا,SUPPORTED,0,
+40,correct_hadith,إن الله طيب لا يقبل إلا طيبا,SUPPORTED,0,
+41,weak_fabricated,الدنيا جيفة وطالبها كلاب,ATTRIBUTED_RULING,1,
+42,weak_fabricated,من عشق فعف فكتم فمات فهو شهيد,ATTRIBUTED_RULING,1,
+43,weak_fabricated,الجمعة حج المساكين,ATTRIBUTED_RULING,1,
+44,weak_fabricated,العلم علمان علم الأبدان وعلم الأديان,ATTRIBUTED_RULING,1,
+45,too_short,آمن,UNDETERMINED,0,
+46,non_religious,Python is a programming language,UNDETERMINED,0,
+47,false_attribution,روي أن النبي قال اشتروا هواتف حديثة فإنها من السنة,UNDETERMINED,0,
+48,correct_verse,الرحمن علم القرآن,SUPPORTED,0,Rahman 1-2
+49,correct_verse,يس والقرآن الحكيم,SUPPORTED,0,Yasin 1-2
+50,correct_hadith,إنما الأعمال بالنيات وإنما لكل امرئ ما نوى فمن كانت هجرته,SUPPORTED,0,longer Bukhari quote
+51,hadith_variant,انما الاعمال بالنيات,SUPPORTED,0,no hamza
+52,hadith_variant,إنما الأعمال بالنيات ولكل امرئ ما نوى,CLOSE_WITH_DIFF,0,missing وإنما — wording differs from Bukhari matn
+53,correct_verse,الحمد لله رب العالمين الرحمن الرحيم,SUPPORTED,0,valid consecutive 1:2-3 paste
+54,weak_fabricated,نظافة الإنسان من الإيمان,ATTRIBUTED_RULING,1,
+55,weak_fabricated,قلب المؤمن دليله,ATTRIBUTED_RULING,1,
+56,ocr_noise,انما الاعمال بالنيات,SUPPORTED,0,missing hamza
+57,ocr_noise,قل هو الله أحد,SUPPORTED,0,
+58,forward_spam,إنما الأعمال بالنيات انشرها ولا تبخل,SUPPORTED,0,
+59,correct_verse,لكل امرئ منهم يومئذ شأن يغنيه,SUPPORTED,0,
+60,made_up,قال رسول الله من أكل تفاحة حمراء غفر له,UNDETERMINED,0,

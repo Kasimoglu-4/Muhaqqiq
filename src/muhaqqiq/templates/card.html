@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block content %}
+  <p class="meta"><a href="/">← تحقق جديد</a></p>
+  <div class="card">
+    <span class="badge {{ result.status }}">{{ result.status_ar }}</span>
+    {% if user_text %}
+      <p class="meta">النص المُدخل</p>
+      <p class="verse">{{ user_text }}</p>
+    {% endif %}
+
+    {% if result.diff_highlight %}
+      <p class="meta">كاشف التحريف بالفرق</p>
+      <p class="verse" dir="rtl">
+        {% for seg in result.diff_highlight %}
+          <span class="hl-{{ seg.op }}">{% if seg.text %}{{ seg.text }}{% elif seg.op == 'insert_marker' %}‸{% endif %}</span>
+        {% endfor %}
+      </p>
+    {% endif %}
+
+    {% if result.matches %}
+      {% set m = result.matches[0] %}
+      {% if result.status == 'CLOSE_WITH_DIFF' %}
+        <p class="meta">الصحيح البديل (درجة {{ result.score }})</p>
+      {% else %}
+        <p class="meta">أقرب مطابقة (درجة {{ result.score }})</p>
+      {% endif %}
+      <p class="verse">{{ result.correct_text or m.text }}</p>
+      <p class="meta">
+        {% if m.kind == 'quran' %}
+          المصدر: القرآن · سورة {{ m.ref.sura }} آية {{ m.ref.aya }} ·
+          <a href="{{ m.proof_url or 'https://tanzil.net/' }}" rel="noopener">رابط الإثبات</a>
+        {% elif m.kind == 'hadith' %}
+          المصدر: {{ m.ref.collection }} · رقم {{ m.ref.number }}
+          {% if m.proof_url %} · <a href="{{ m.proof_url }}" rel="noopener">رابط الإثبات</a>{% endif %}
+        {% else %}
+          مطالبة معروفة ({{ m.ref.claim_type }})
+        {% endif %}
+      </p>
+      {% if m.translations %}
+        <p class="meta">معاني مخزّنة</p>
+        {% for tr in m.translations %}
+          <p class="meta"><strong>{{ tr.lang|upper }}:</strong> {{ tr.text }}</p>
+        {% endfor %}
+      {% endif %}
+    {% endif %}
+
+    {% if result.status == 'ATTRIBUTED_RULING' and result.gradings %}
+      <p class="meta">أحكام منسوبة</p>
+      <ul class="meta">
+        {% for g in result.gradings %}
+          <li>
+            حكم {{ g.grader }}: {{ g.grade or g.ruling }} ({{ g.reference }})
+            {% if g.url %} · <a href="{{ g.url }}" rel="noopener">مرجع</a>{% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+      <p class="meta">قد يختلف الحكم بين المحدّثين؛ نعرض ما هو مخزّن فقط.</p>
+    {% elif result.matches and result.matches[0].grading %}
+      {% set g = result.matches[0].grading %}
+      <p class="meta">
+        حكم {{ g.grader }}: {{ g.ruling or g.grade }}
+        ({{ g.reference }})
+        {% if g.url %} · <a href="{{ g.url }}" rel="noopener">مرجع</a>{% endif %}
+      </p>
+    {% endif %}
+
+    {% if result.diff and not result.diff_highlight %}
+      <p class="meta">اختلافات (على النص بعد التطبيع)</p>
+      <ul class="diff meta">
+        {% for d in result.diff %}
+          <li>{{ d.op }}: «{{ d.user_span.text }}» → «{{ d.original_span.text }}»</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    <div class="foot">
+      <p>{{ result.supported_means }}</p>
+      <p>{{ result.ai_disclosure }}</p>
+      <p>
+        رابط دائم:
+        <a href="{{ result.card_url }}">{{ result.card_url }}</a>
+        · إصدار البيانات: {{ result.data_version }}
+      </p>
+    </div>
+  </div>
+{% endblock %}

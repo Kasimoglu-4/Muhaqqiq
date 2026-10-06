@@ -1,0 +1,13 @@
+{
+  "reviews": [],
+  "note": "Signed scholarly reviews only. Empty means ختم المراجعة الشرعية is not shown.",
+  "schema": {
+    "reviews[]": {
+      "name": "Reviewer full name",
+      "date": "YYYY-MM-DD",
+      "scope": "known-claims + status wording + sample cards",
+      "claim_ids": [1, 2],
+      "signed": true
+    }
+  }
+}

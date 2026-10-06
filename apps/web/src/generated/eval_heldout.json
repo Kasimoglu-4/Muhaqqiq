@@ -1,0 +1,84 @@
+{
+  "source": "benchmark_v1.csv",
+  "split": "holdout",
+  "n": 85,
+  "correct": 77,
+  "accuracy": 0.9058823529411765,
+  "accuracy_pct": 90.6,
+  "false_support": 0,
+  "abstain_ok": 14,
+  "abstain_total": 14,
+  "over_abstain": 6,
+  "should_match_total": 71,
+  "p50_ms": 600.6,
+  "p95_ms": 1388.8,
+  "baseline_correct": 45,
+  "baseline_accuracy": 0.5294117647058824,
+  "baseline_accuracy_pct": 52.9,
+  "improvement_vs_baseline": 1.71,
+  "by_category": {
+    "correct_hadith": {
+      "correct": 4,
+      "total": 4
+    },
+    "correct_verse": {
+      "correct": 6,
+      "total": 6
+    },
+    "false_attribution": {
+      "correct": 3,
+      "total": 3
+    },
+    "forward_spam": {
+      "correct": 14,
+      "total": 20
+    },
+    "hadith_variant": {
+      "correct": 5,
+      "total": 5
+    },
+    "made_up": {
+      "correct": 2,
+      "total": 2
+    },
+    "non_religious": {
+      "correct": 2,
+      "total": 2
+    },
+    "ocr_noise": {
+      "correct": 19,
+      "total": 19
+    },
+    "organizer": {
+      "correct": 3,
+      "total": 3
+    },
+    "tampered_hadith": {
+      "correct": 7,
+      "total": 9
+    },
+    "tampered_verse": {
+      "correct": 3,
+      "total": 3
+    },
+    "too_short": {
+      "correct": 4,
+      "total": 4
+    },
+    "weak_fabricated": {
+      "correct": 5,
+      "total": 5
+    }
+  },
+  "data_version": "v1.1.0",
+  "generated_at": "2026-10-06T09:42:28.562994+00:00",
+  "reproducible_via": "make eval-holdout  OR  uv run python -m eval.run_eval --bench eval/benchmark_v1.csv --split holdout",
+  "technical_seal": {
+    "data_version": "v1.1.0",
+    "false_support": 0,
+    "accuracy": 0.9058823529411765,
+    "accuracy_pct": 90.6,
+    "holdout_n": 85,
+    "generated_at": "2026-10-06T09:42:28.562994+00:00"
+  }
+}

@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+.venv
+.pytest_cache/
+.ruff_cache/
+*.db
+
+# Data (pinned downloads and generated DB)
+data/raw/
+data/build/
+!data/build/.gitkeep
+
+# Ops backups
+backups/
+
+# Env / OS
+.env
+.DS_Store
+Thumbs.db
+
+# Node (apps/web)
+node_modules/
+.next/
+out/
+
+# IDE
+.idea/
+*.swp

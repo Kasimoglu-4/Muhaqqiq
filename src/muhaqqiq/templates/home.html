@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1><span class="brand">مُحقِّق</span></h1>
+  <p class="lead">الصق نصًا أو ارفع لقطة شاشة. الأداة مساعدة بالذكاء الاصطناعي وليست جهة فتوى.</p>
+  {% if ocr_message %}
+    <p class="meta">{{ ocr_message }}</p>
+  {% endif %}
+  <form method="post" action="/verify" enctype="multipart/form-data">
+    <label for="text" class="meta">النص للتحقق</label>
+    <textarea id="text" name="text" maxlength="2000" placeholder="مثال: إنما الأعمال بالنيات">{{ ocr_text or "" }}</textarea>
+    <label for="image" class="meta" style="display:block;margin-top:1rem">أو صورة (اختياري، حتى 5MB)</label>
+    <input id="image" name="image" type="file" accept="image/png,image/jpeg,image/webp,image/gif" />
+    <button type="submit">تحقق</button>
+  </form>
+{% endblock %}

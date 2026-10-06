@@ -1,0 +1,247 @@
+{
+  "schema_version": 1,
+  "primary_claim": "holdout",
+  "data_version": "v1.1.0",
+  "generated_at": "2026-10-06T09:44:51.751361+00:00",
+  "notes": [
+    "Offline labeled CSV benchmark — not live request logs.",
+    "Primary public claim is holdout (not used for threshold tuning).",
+    "OCR CER on real screenshots is not measured yet.",
+    "Latency depends on the machine that ran the eval."
+  ],
+  "main_metrics": {
+    "false_support": 0,
+    "accuracy_pct": 90.6,
+    "correct": 77,
+    "n": 85,
+    "baseline_accuracy_pct": 52.9,
+    "improvement_vs_baseline": 1.71,
+    "abstention_correctness": "14/14",
+    "over_abstention": "6/71",
+    "p50_ms": 600.6,
+    "p95_ms": 1388.8
+  },
+  "suites": {
+    "phase0": {
+      "source": "benchmark_v0.csv",
+      "split": "all",
+      "n": 60,
+      "correct": 59,
+      "accuracy": 0.9833333333333333,
+      "accuracy_pct": 98.3,
+      "false_support": 0,
+      "abstain_ok": 12,
+      "abstain_total": 12,
+      "over_abstain": 1,
+      "should_match_total": 48,
+      "p50_ms": 532.0,
+      "p95_ms": 1381.9,
+      "baseline_correct": 46,
+      "baseline_accuracy_pct": 76.7,
+      "improvement_vs_baseline": 1.28,
+      "by_category": {
+        "correct_hadith": {
+          "correct": 10,
+          "total": 10
+        },
+        "correct_verse": {
+          "correct": 16,
+          "total": 16
+        },
+        "false_attribution": {
+          "correct": 3,
+          "total": 3
+        },
+        "forward_spam": {
+          "correct": 1,
+          "total": 1
+        },
+        "hadith_variant": {
+          "correct": 2,
+          "total": 3
+        },
+        "made_up": {
+          "correct": 1,
+          "total": 1
+        },
+        "non_religious": {
+          "correct": 4,
+          "total": 4
+        },
+        "ocr_noise": {
+          "correct": 2,
+          "total": 2
+        },
+        "tampered_verse": {
+          "correct": 5,
+          "total": 5
+        },
+        "too_short": {
+          "correct": 4,
+          "total": 4
+        },
+        "weak_fabricated": {
+          "correct": 11,
+          "total": 11
+        }
+      }
+    },
+    "holdout": {
+      "source": "benchmark_v1.csv",
+      "split": "holdout",
+      "n": 85,
+      "correct": 77,
+      "accuracy": 0.9058823529411765,
+      "accuracy_pct": 90.6,
+      "false_support": 0,
+      "abstain_ok": 14,
+      "abstain_total": 14,
+      "over_abstain": 6,
+      "should_match_total": 71,
+      "p50_ms": 600.6,
+      "p95_ms": 1388.8,
+      "baseline_correct": 45,
+      "baseline_accuracy_pct": 52.9,
+      "improvement_vs_baseline": 1.71,
+      "by_category": {
+        "correct_hadith": {
+          "correct": 4,
+          "total": 4
+        },
+        "correct_verse": {
+          "correct": 6,
+          "total": 6
+        },
+        "false_attribution": {
+          "correct": 3,
+          "total": 3
+        },
+        "forward_spam": {
+          "correct": 14,
+          "total": 20
+        },
+        "hadith_variant": {
+          "correct": 5,
+          "total": 5
+        },
+        "made_up": {
+          "correct": 2,
+          "total": 2
+        },
+        "non_religious": {
+          "correct": 2,
+          "total": 2
+        },
+        "ocr_noise": {
+          "correct": 19,
+          "total": 19
+        },
+        "organizer": {
+          "correct": 3,
+          "total": 3
+        },
+        "tampered_hadith": {
+          "correct": 7,
+          "total": 9
+        },
+        "tampered_verse": {
+          "correct": 3,
+          "total": 3
+        },
+        "too_short": {
+          "correct": 4,
+          "total": 4
+        },
+        "weak_fabricated": {
+          "correct": 5,
+          "total": 5
+        }
+      }
+    },
+    "v1_all": {
+      "source": "benchmark_v1.csv",
+      "split": "all",
+      "n": 191,
+      "correct": 177,
+      "accuracy": 0.9267015706806283,
+      "accuracy_pct": 92.7,
+      "false_support": 1,
+      "abstain_ok": 32,
+      "abstain_total": 34,
+      "over_abstain": 8,
+      "should_match_total": 157,
+      "p50_ms": 620.3,
+      "p95_ms": 1505.7,
+      "baseline_correct": 116,
+      "baseline_accuracy_pct": 60.7,
+      "improvement_vs_baseline": 1.53,
+      "by_category": {
+        "correct_hadith": {
+          "correct": 11,
+          "total": 11
+        },
+        "correct_verse": {
+          "correct": 18,
+          "total": 18
+        },
+        "false_attribution": {
+          "correct": 5,
+          "total": 5
+        },
+        "forward_spam": {
+          "correct": 25,
+          "total": 31
+        },
+        "hadith_variant": {
+          "correct": 11,
+          "total": 13
+        },
+        "made_up": {
+          "correct": 5,
+          "total": 5
+        },
+        "non_religious": {
+          "correct": 7,
+          "total": 7
+        },
+        "ocr_noise": {
+          "correct": 48,
+          "total": 48
+        },
+        "organizer": {
+          "correct": 6,
+          "total": 6
+        },
+        "scattered_tokens": {
+          "correct": 1,
+          "total": 1
+        },
+        "tampered_hadith": {
+          "correct": 11,
+          "total": 14
+        },
+        "tampered_verse": {
+          "correct": 9,
+          "total": 12
+        },
+        "too_short": {
+          "correct": 7,
+          "total": 7
+        },
+        "vocab_overlap_short": {
+          "correct": 2,
+          "total": 2
+        },
+        "weak_fabricated": {
+          "correct": 11,
+          "total": 11
+        }
+      }
+    }
+  },
+  "reproduce": {
+    "phase0": "make eval",
+    "holdout": "make eval-holdout",
+    "v1_all": "uv run python -m eval.run_eval --bench eval/benchmark_v1.csv --split all --out docs/eval_v1_results.md --title \"Benchmark v1 (all)\""
+  }
+}
