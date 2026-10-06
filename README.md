@@ -10,16 +10,40 @@ Fast verification for viral Islamic text (Quran verses and hadith). Paste text �
 
 AI-assisted tool, not a fatwa authority.
 
+## Quick start
+
+Needs [uv](https://docs.astral.sh/uv/) and Node 22+.
+
+```bash
+# once — deps + SQLite corpus
+uv sync --group dev
+uv run python -m pipeline.download_sources
+uv run python -m pipeline.load_all
+```
+
+Two terminals:
+
+```bash
+# API → http://127.0.0.1:8000
+uv run uvicorn muhaqqiq.main:app --host 127.0.0.1 --port 8000
+```
+
+```bash
+# Web → http://127.0.0.1:3000 (calls the local API by default)
+cd apps/web && npm install && npm run dev
+```
+
+Open the web app at http://127.0.0.1:3000. Check API: `curl http://127.0.0.1:8000/health`.
+
 ## Setup
+
+Full local toolchain (optional groups for Postgres / embeddings):
 
 ```bash
 uv sync --group dev --group postgres --group embeddings
-# download pinned sources + build SQLite DB + validate (see pipeline/)
 uv run python -m pipeline.download_sources
 uv run python -m pipeline.load_all
 uv run python -m pipeline.validate
-uv run uvicorn muhaqqiq.main:app --host 127.0.0.1 --port 8000
-cd apps/web && npm install && npm run dev   # RTL PWA :3000
 ```
 
 Optional embeddings at runtime: `$env:MUHAQQIQ_EMBEDDINGS='1'` after building the embedding index.
