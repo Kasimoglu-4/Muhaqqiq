@@ -6,6 +6,8 @@ Fast verification for viral Islamic text (Quran verses and hadith). Paste text �
 
 **License:** code under [MIT](LICENSE); corpus terms in [Data sources](#data-sources) below. Data freeze: **v1.0.0**. UI: Arabic / English / Turkish (`?lang=`).
 
+**Live:** [muhaqqiq.pages.dev](https://muhaqqiq.pages.dev/) (web) · API at `https://muhaqqiq-api.fly.dev` (JSON + minimal HTML fallback — not the product UI).
+
 AI-assisted tool, not a fatwa authority.
 
 ## Setup
@@ -40,6 +42,8 @@ uv run python -m eval.run_eval
 
 ### Deploy (free path)
 
+Share the **Pages** URL with users, not the Fly host.
+
 **API → [Fly.io](https://fly.io)** · **Web → [Cloudflare Pages](https://pages.cloudflare.com)**
 
 ```bash
@@ -48,15 +52,20 @@ cp fly.toml.example fly.toml
 fly auth login
 fly apps create muhaqqiq-api          # once; match app name in fly.toml
 fly volumes create muhaqqiq_data --region iad --size 1
-fly secrets set MUHAQQIQ_CORS_ORIGINS=https://YOUR_PAGES_HOST
+fly secrets set MUHAQQIQ_CORS_ORIGINS=https://muhaqqiq.pages.dev
 fly deploy
 
-# 2) Web — Cloudflare dashboard: Pages → Connect repo
+# 2) Web — Cloudflare Pages → Connect repo (Kasimoglu-4/Muhaqqiq)
 #    Root directory: apps/web
-#    Framework: Next.js (Static HTML Export) → build out/
-#    Env: NEXT_PUBLIC_API_URL=https://muhaqqiq-api.fly.dev
+#    Framework: Next.js (Static HTML Export)
+#    Build: npx next build → output directory out/
+#    Env: NEXT_PUBLIC_API_URL=https://muhaqqiq-api.fly.dev  NODE_VERSION=22
 # Or: Actions → deploy → web-pages (needs CF secrets)
 ```
+
+After the Pages URL is final, set CORS again: `fly secrets set MUHAQQIQ_CORS_ORIGINS=https://YOUR.pages.dev`.
+
+Optional API host: [Render](https://dashboard.render.com) via `render.yaml` (free tier sleeps; cards not durable).
 
 Set GitHub secrets `FLY_API_TOKEN`, `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID` and var `NEXT_PUBLIC_API_URL` for CI deploy.
 
