@@ -1,10 +1,9 @@
-import type { Metadata } from "next";
+"use client";
+
 import Link from "next/link";
+import { Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { dirFor, parseLang, statusLabel, t, withLang, type Lang } from "@/lib/i18n";
-
-export const metadata: Metadata = { title: "How it works" };
-
-type Props = { searchParams: Promise<{ lang?: string }> };
 
 const STATUS_KEYS = ["SUPPORTED", "CLOSE_WITH_DIFF", "ATTRIBUTED_RULING", "UNDETERMINED"] as const;
 
@@ -36,8 +35,8 @@ function limits(lang: Lang): string[] {
   ];
 }
 
-export default async function HowItWorksPage({ searchParams }: Props) {
-  const lang = parseLang((await searchParams).lang);
+function HowInner() {
+  const lang = parseLang(useSearchParams().get("lang"));
   const m = t(lang);
 
   return (
@@ -85,5 +84,13 @@ export default async function HowItWorksPage({ searchParams }: Props) {
         </p>
       </div>
     </main>
+  );
+}
+
+export default function HowItWorksPage() {
+  return (
+    <Suspense fallback={<p className="meta">…</p>}>
+      <HowInner />
+    </Suspense>
   );
 }

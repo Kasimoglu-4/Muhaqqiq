@@ -55,9 +55,9 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: apps/web
-          command: pages deploy .next --project-name=${{ vars.CF_PAGES_PROJECT || 'muhaqqiq' }}
+          command: pages deploy out --project-name=${{ vars.CF_PAGES_PROJECT || 'muhaqqiq' }}
       - name: Missing Cloudflare secrets
         if: ${{ secrets.CLOUDFLARE_API_TOKEN == '' || secrets.CLOUDFLARE_ACCOUNT_ID == '' }}
         run: |
           echo "Set CLOUDFLARE_API_TOKEN + CLOUDFLARE_ACCOUNT_ID secrets and NEXT_PUBLIC_API_URL var."
-          echo "Or connect this repo to Cloudflare Pages (framework: Next.js, root: apps/web)."
+          echo "Or connect this repo to Cloudflare Pages (Static HTML Export, root: apps/web, output: out)."

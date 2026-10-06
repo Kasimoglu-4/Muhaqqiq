@@ -1,15 +1,18 @@
+"use client";
+
+import { Suspense, useMemo } from "react";
+import { useSearchParams } from "next/navigation";
 import { VerifyForm } from "@/components/VerifyForm";
 import { dirFor, parseLang, t } from "@/lib/i18n";
 
-type Props = {
-  searchParams: Promise<{ text?: string; title?: string; url?: string; lang?: string }>;
-};
-
-export default async function HomePage({ searchParams }: Props) {
-  const q = await searchParams;
-  const lang = parseLang(q.lang);
+function HomeInner() {
+  const params = useSearchParams();
+  const lang = parseLang(params.get("lang"));
   const m = t(lang);
-  const shared = [q.text, q.title, q.url].filter(Boolean).join("\n").trim();
+  const shared = useMemo(
+    () => [params.get("text"), params.get("title"), params.get("url")].filter(Boolean).join("\n").trim(),
+    [params],
+  );
 
   return (
     <main dir={dirFor(lang)} lang={lang}>
@@ -51,5 +54,13 @@ export default async function HomePage({ searchParams }: Props) {
       </div>
       <footer className="site-footer">{m.aiDisclosure}</footer>
     </main>
+  );
+}
+
+export default function HomePage() {
+  return (
+    <Suspense fallback={<p className="meta">…</p>}>
+      <HomeInner />
+    </Suspense>
   );
 }

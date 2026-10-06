@@ -1,14 +1,13 @@
-import type { Metadata } from "next";
+"use client";
+
 import Link from "next/link";
+import { Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { PRIVACY, type PrivacyLang } from "@/content/privacy";
 
-export const metadata: Metadata = { title: "الخصوصية" };
-
-type Props = { searchParams: Promise<{ lang?: string }> };
-
-export default async function PrivacyPage({ searchParams }: Props) {
-  const q = await searchParams;
-  const lang = (["ar", "en", "tr"].includes(q.lang || "") ? q.lang : "ar") as PrivacyLang;
+function PrivacyInner() {
+  const q = useSearchParams().get("lang");
+  const lang = (["ar", "en", "tr"].includes(q || "") ? q : "ar") as PrivacyLang;
   const body = PRIVACY[lang];
   const dir = lang === "ar" ? "rtl" : "ltr";
 
@@ -34,5 +33,13 @@ export default async function PrivacyPage({ searchParams }: Props) {
         ))}
       </div>
     </main>
+  );
+}
+
+export default function PrivacyPage() {
+  return (
+    <Suspense fallback={<p className="meta">…</p>}>
+      <PrivacyInner />
+    </Suspense>
   );
 }

@@ -1,0 +1,2 @@
+# Keep pretty card URLs while serving the static card shell (client reads /c/:id).
+/c/:id /card 200

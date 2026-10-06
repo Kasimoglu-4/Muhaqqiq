@@ -1,11 +1,10 @@
-import type { Metadata } from "next";
+"use client";
+
+import { Suspense, useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { fetchSources } from "@/lib/api";
 import staticSources from "@/generated/sources.json";
 import { dirFor, parseLang, t } from "@/lib/i18n";
-
-export const metadata: Metadata = { title: "Sources" };
-
-type Props = { searchParams: Promise<{ lang?: string }> };
 
 type StaticSource = (typeof staticSources.sources)[number];
 
@@ -48,20 +47,18 @@ function SourceName({ name, url }: { name: string; url?: string | null }) {
   return <div className="source-name">{name}</div>;
 }
 
-export default async function SourcesPage({ searchParams }: Props) {
-  const lang = parseLang((await searchParams).lang);
+function SourcesInner() {
+  const lang = parseLang(useSearchParams().get("lang"));
   const m = t(lang);
-  let apiVersion: string | undefined;
-  try {
-    const data = await fetchSources();
-    apiVersion = data.data_version;
-  } catch {
-    /* optional */
-  }
+  const [apiVersion, setApiVersion] = useState<string | undefined>();
 
-  const usedSources = staticSources.sources.filter(
-    (s: StaticSource) => s.status === "used",
-  );
+  useEffect(() => {
+    fetchSources()
+      .then((data) => setApiVersion(data.data_version))
+      .catch(() => undefined);
+  }, []);
+
+  const usedSources = staticSources.sources.filter((s: StaticSource) => s.status === "used");
 
   return (
     <main dir={dirFor(lang)} lang={lang}>
@@ -89,5 +86,13 @@ export default async function SourcesPage({ searchParams }: Props) {
         </ul>
       </div>
     </main>
+  );
+}
+
+export default function SourcesPage() {
+  return (
+    <Suspense fallback={<p className="meta">…</p>}>
+      <SourcesInner />
+    </Suspense>
   );
 }

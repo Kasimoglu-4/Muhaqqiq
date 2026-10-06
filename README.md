@@ -53,6 +53,7 @@ fly deploy
 
 # 2) Web — Cloudflare dashboard: Pages → Connect repo
 #    Root directory: apps/web
+#    Framework: Next.js (Static HTML Export) → build out/
 #    Env: NEXT_PUBLIC_API_URL=https://muhaqqiq-api.fly.dev
 # Or: Actions → deploy → web-pages (needs CF secrets)
 ```
